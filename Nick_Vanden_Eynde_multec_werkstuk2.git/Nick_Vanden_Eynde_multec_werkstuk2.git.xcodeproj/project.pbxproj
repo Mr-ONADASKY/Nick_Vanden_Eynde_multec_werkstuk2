@@ -15,6 +15,8 @@
 		57D28251209E05D10057956A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D2824F209E05D10057956A /* LaunchScreen.storyboard */; };
 		57D2825C209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2_gitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2825B209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2_gitTests.swift */; };
 		57D28267209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2_gitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D28266209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2_gitUITests.swift */; };
+		57D28279209E11450057956A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D28278209E11450057956A /* TableViewController.swift */; };
+		57D2827B209E11E60057956A /* forTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2827A209E11E60057956A /* forTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		57D28262209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2.gitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Nick_Vanden_Eynde_multec_werkstuk2.gitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D28266209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2_gitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nick_Vanden_Eynde_multec_werkstuk2_gitUITests.swift; sourceTree = "<group>"; };
 		57D28268209E05D10057956A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57D28278209E11450057956A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		57D2827A209E11E60057956A /* forTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +103,12 @@
 		57D28242209E05D00057956A /* Nick_Vanden_Eynde_multec_werkstuk2.git */ = {
 			isa = PBXGroup;
 			children = (
-				57D28243209E05D00057956A /* AppDelegate.swift */,
-				57D28245209E05D00057956A /* ViewController.swift */,
-				57D28247209E05D00057956A /* Main.storyboard */,
-				57D2824D209E05D10057956A /* Assets.xcassets */,
-				57D2824F209E05D10057956A /* LaunchScreen.storyboard */,
 				57D28252209E05D10057956A /* Info.plist */,
-				57D2824A209E05D00057956A /* Nick_Vanden_Eynde_multec_werkstuk2_git.xcdatamodeld */,
+				57D28280209E17250057956A /* Application delegate */,
+				57D2827F209E170A0057956A /* Coredata */,
+				57D2827E209E16F00057956A /* Assets */,
+				57D2827D209E16DB0057956A /* Storyboard */,
+				57D2827C209E16C00057956A /* Controller */,
 			);
 			path = Nick_Vanden_Eynde_multec_werkstuk2.git;
 			sourceTree = "<group>";
@@ -126,6 +129,49 @@
 				57D28268209E05D10057956A /* Info.plist */,
 			);
 			path = Nick_Vanden_Eynde_multec_werkstuk2.gitUITests;
+			sourceTree = "<group>";
+		};
+		57D2827C209E16C00057956A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				57D28245209E05D00057956A /* ViewController.swift */,
+				57D2827A209E11E60057956A /* forTableViewController.swift */,
+				57D28278209E11450057956A /* TableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		57D2827D209E16DB0057956A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				57D28247209E05D00057956A /* Main.storyboard */,
+				57D2824F209E05D10057956A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		57D2827E209E16F00057956A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				57D2824D209E05D10057956A /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		57D2827F209E170A0057956A /* Coredata */ = {
+			isa = PBXGroup;
+			children = (
+				57D2824A209E05D00057956A /* Nick_Vanden_Eynde_multec_werkstuk2_git.xcdatamodeld */,
+			);
+			path = Coredata;
+			sourceTree = "<group>";
+		};
+		57D28280209E17250057956A /* Application delegate */ = {
+			isa = PBXGroup;
+			children = (
+				57D28243209E05D00057956A /* AppDelegate.swift */,
+			);
+			path = "Application delegate";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +308,8 @@
 				57D28246209E05D00057956A /* ViewController.swift in Sources */,
 				57D28244209E05D00057956A /* AppDelegate.swift in Sources */,
 				57D2824C209E05D00057956A /* Nick_Vanden_Eynde_multec_werkstuk2_git.xcdatamodeld in Sources */,
+				57D2827B209E11E60057956A /* forTableViewController.swift in Sources */,
+				57D28279209E11450057956A /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
