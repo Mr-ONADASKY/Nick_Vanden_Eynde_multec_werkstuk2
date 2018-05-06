@@ -58,12 +58,12 @@ import UIKit
             }
             
         } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            fatalError("Failed to fetch stations: \(error)")
         }
     }
     
     private func insertInDataBase(stations: [AnyObject]){
-        
+            
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
                 else {
                     return
@@ -89,12 +89,98 @@ import UIKit
                 
                 do {
                     try managedContext.save()
+                    updateUpdateTime()
                 } catch {
                     fatalError("Failure to save context: \(error)")
                 }
             }
+        
+        
+        }
+    
+     func getUpdateTime() -> String {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            else {
+                fatalError()
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let timeFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "UpdateTime")
+        
+        
+        let opgehaaldeTime: [UpdateTime]
+        
+        do {
+            opgehaaldeTime = try managedContext.fetch(timeFetch) as! [UpdateTime]
+            if opgehaaldeTime.first != nil{
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "nl_BE POSIX")
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                dateFormatter.timeZone = TimeZone(secondsFromGMT: 3600)
+                return dateFormatter.string(from: opgehaaldeTime.first!.time!)
+            }else {
+                return "Pull down to get data"
+            }
+            
+  
+        } catch {
+            fatalError("Failed to fetch employees: \(error)")
+        }
+    }
+    
+    private func updateUpdateTime(){
+        removeUpdatetime()
+        createDate()
+        
+        
+    }
+    
+    private func createDate() {
+        let currentDateTime = Date()
+    
+        insertUpdateTime(currentDateTime: currentDateTime)
+    }
+    
+    private func insertUpdateTime(currentDateTime: Date) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            else {
+                return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let time = NSEntityDescription.insertNewObject(forEntityName: "UpdateTime", into: managedContext) as! UpdateTime
+        
+        time.time = currentDateTime
+        
+        do {
+            try managedContext.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
         }
         
+    }
 
+    private func removeUpdatetime() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            else {
+                return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let timeFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "UpdateTime")
+        
+        let times:[UpdateTime]
+        do {
+            times = try managedContext.fetch(timeFetch) as! [UpdateTime]
+            
+            for updateTime in times {
+                managedContext.delete(updateTime)
+                try! managedContext.save()
+            }
+            
+        } catch {
+            fatalError("Failed to fetch stations: \(error)")
+        }
+    }
 
 }

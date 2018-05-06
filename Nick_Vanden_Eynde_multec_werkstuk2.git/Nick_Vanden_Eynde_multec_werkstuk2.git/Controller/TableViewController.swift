@@ -4,12 +4,15 @@
 //
 //  Created by Nickvde on 05/05/2018.
 //  Copyright © 2018 Nickvde. All rights reserved.
-//
+// Bronnen: https://cocoacasts.com/how-to-add-pull-to-refresh-to-a-table-view-or-collection-view
+// https://benscheirman.com/2017/06/swift-json/
+// https://stackoverflow.com/questions/9964371/how-to-detect-first-time-app-launch-on-an-iphone
 
 import UIKit
 
 class TableViewController: UITableViewController {
-
+    
+    
     var villoStations = [Station]()
     
     private let dataManager = DataManager()
@@ -17,9 +20,18 @@ class TableViewController: UITableViewController {
     
     @IBOutlet weak var updateLabel: UILabel!
     @IBAction func refresh(_ sender: UIRefreshControl) {
-        print("refresh")
         
-        sender.endRefreshing()
+        dataManager.loadData() {
+            (stations, error) in
+            DispatchQueue.main.async {
+                self.dataBaseManager.updateDatabase(stations: stations!)
+                self.villoStations = self.dataBaseManager.getDataFromTheDatabase()
+                self.tableView.reloadData()
+                self.updateLabel.text = self.dataBaseManager.getUpdateTime()
+                sender.endRefreshing()
+            }
+        }
+        
     }
     //private let refreshControl = UIRefreshControl()
     
@@ -27,11 +39,9 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(isAppAlreadyLaunchedOnce())
         self.villoStations = self.dataBaseManager.getDataFromTheDatabase()
-        
-        
-        
-        tableView.reloadData()
+        updateLabel.text = self.dataBaseManager.getUpdateTime()
 
     }
 
@@ -42,9 +52,7 @@ class TableViewController: UITableViewController {
             
             DispatchQueue.main.async {
                 self.dataBaseManager.updateDatabase(stations: stations!)
-                
                 self.villoStations = self.dataBaseManager.getDataFromTheDatabase()
-                
                 self.updateView()
                 
             }
@@ -94,6 +102,19 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = villoStation.name
 
         return cell
+    }
+    
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults.standard
+        
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched : \(isAppAlreadyLaunchedOnce)")
+            return true
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
     }
     
 

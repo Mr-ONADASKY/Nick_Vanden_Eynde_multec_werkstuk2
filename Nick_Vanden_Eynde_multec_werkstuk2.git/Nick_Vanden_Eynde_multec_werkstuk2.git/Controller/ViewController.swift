@@ -6,6 +6,7 @@
 //  Copyright © 2018 Nickvde. All rights reserved.
 // Bronnen: https://cocoacasts.com/how-to-add-pull-to-refresh-to-a-table-view-or-collection-view
 // https://benscheirman.com/2017/06/swift-json/
+// https://stackoverflow.com/questions/9964371/how-to-detect-first-time-app-launch-on-an-iphone
 
 import UIKit
 
