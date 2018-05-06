@@ -10,26 +10,60 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
+    var villoStations = [Station]()
+    
+    private let dataManager = DataManager()
+    private let dataBaseManager = DataBaseManager()
+    
+    @IBOutlet weak var updateLabel: UILabel!
+    @IBAction func refresh(_ sender: UIRefreshControl) {
+        print("refresh")
+        
+        sender.endRefreshing()
+    }
     //private let refreshControl = UIRefreshControl()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.villoStations = self.dataBaseManager.getDataFromTheDatabase()
+        
+        
+        
+        tableView.reloadData()
 
-        // Add Refresh Control to Table View
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl!)
-        }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    private func refreshVilloData() {
+        // fetch villo data
+        
+        dataManager.loadData() {stations,error in
+            
+            DispatchQueue.main.async {
+                self.dataBaseManager.updateDatabase(stations: stations!)
+                
+                self.villoStations = self.dataBaseManager.getDataFromTheDatabase()
+                
+                self.updateView()
+                
+            }
+        }
+    }
+    
+    private func updateView() {
+        tableView.reloadData()
+    }
+    
+    private func setupView() {
+        setupTableView()
+    }
+    
+    private func setupTableView(){
+        tableView.isHidden = true
+      //  activityIndicator.startAnimating()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -39,23 +73,29 @@ class TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        print(self.villoStations.count)
+        return villoStations.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         // Configure the cell...
+        
+        
+        let villoStation = villoStations[indexPath.row]
+        
+        cell.textLabel?.text = villoStation.name
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

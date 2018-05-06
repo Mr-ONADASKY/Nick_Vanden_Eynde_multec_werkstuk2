@@ -7,25 +7,32 @@
 //
 
 import UIKit
+import CoreLocation
+import CoreData
 
 class forTableViewController: UIViewController {
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var villoStations = [Station]()
     
-    //let url = URL(string: "https://api.jcdecaux.com/vls/v1/stations?apiKey=6d5071ed0d0b3b68462ad73df43fd9e5479b03d6&contract=Bruxelles-Capitale")
-   // url = URL(string: "http://rest-service.guides.spring.io/greeting")
-    let url = URL(string: "https://jsonplaceholder.typicode.com/posts")
-
-    
+    private let dataManager = DataManager()
+    private let dataBaseManager = DataBaseManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.villoStations = self.dataBaseManager.getDataFromTheDatabase()
+
+        print(self.villoStations.count)
         
-       setupView()
+        self.tableview.reloadData()
         
+       /*setupView()
+        self.tableview.isHidden = false
+        self.activityIndicator.stopAnimating()
         refreshVilloData()
+ */
         // Do any additional setup after loading the view.
     }
 
@@ -37,109 +44,52 @@ class forTableViewController: UIViewController {
     private func refreshVilloData() {
         // fetch villo data
         
-        loadData()
-        
-    }
-    
-    private func loadData() {
-        //let url = URL(string: "http://api.nicehash.com/api?method=stats.provider&addr=14FMY9XHC3eCvdGBvQz3a3pCwAeoar8VRz")!
-        /*URLSession.shared.dataTask(with: url!) { data, response, error in
-            guard let data = data else { return }
-            print(data.count) // you can parse your json data here
-            }.resume()*/
-        
-        
-        let urlRequest = URLRequest(url: url!)
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        let task = session.dataTask(with: urlRequest) {
-            (data, response, error) in
-            //check for errors
-            guard error == nil && data != nil else {
-                print("error calling GET")
-                print(error!)
-                return
-            }
-            let decoder = JSONDecoder()
-            
-            struct pos: Codable {
-                let userId: Int
-                let id: Int
-                let title: String
-            }
-            do {
-                let posts = try decoder.decode(Array<pos>.self, from: data!)
-            print(posts.count)
-                print(posts.first?.title)
-            } catch let error as NSError {
-                print(error)
-            }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-                    as? [String: AnyObject]
-                //print(json?.count, json!["content"])
-                print("hello", json)
-                
-                
-                for station in json as! [Dictionary<String, Any>]{
-                    print(station)
-                    //print(station["number"])
-                }
-                
-                DispatchQueue.main.async {
-                    // let integer = json!["id"] as? NSNumber
-                    // self.IdLabel.text = integer?.stringValue
-                    // self.messageLabel.text = json?["content"] as? String
-                    self.activityIndicator.stopAnimating()
-                }
-            } catch let error as NSError {
-                print(error)
-            }
-            //self.parseDataToJson(data:data!)
-        }
-        task.resume()
-    }
-    
-    private func parseDataToJson( data:Data){
-        do {
-            let json = try JSONSerialization.jsonObject(with: data, options: [])
-                as? [String: AnyObject]
-            print(json?.count)
-            print("hello")
-            
-            
-            for station in json as! [Dictionary<String, Any>]{
-                print(station)
-                print(station["number"])
-            }
+        dataManager.loadData() {stations,error in
             
             DispatchQueue.main.async {
-                // let integer = json!["id"] as? NSNumber
-                // self.IdLabel.text = integer?.stringValue
-                // self.messageLabel.text = json?["content"] as? String
-                self.activityIndicator.stopAnimating()
+                self.dataBaseManager.updateDatabase(stations: stations!)
+                
+                 self.villoStations = self.dataBaseManager.getDataFromTheDatabase()
+                
+                self.updateView()
+                
             }
-        } catch let error as NSError {
-            print(error)
         }
+    }
+    
+    private func updateView() {
+        self.tableview.reloadData()
     }
 
     private func setupView() {
         setupTableView()
-        
     }
     
     private func setupTableView(){
         tableview.isHidden = true
         activityIndicator.startAnimating()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+    extension forTableViewController: UITableViewDataSource {
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            print(villoStations.count)
+            return villoStations.count
+            
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            // Dequeue Reusable Cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            
+            let villoStation = villoStations[indexPath.row]
+            
+            cell.textLabel?.text = villoStation.name
+            
+            
+            return cell
+        }
+}
+
+
