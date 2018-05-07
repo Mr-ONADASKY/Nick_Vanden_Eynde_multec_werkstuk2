@@ -21,6 +21,8 @@
 		57E42BE4209E583400A906A0 /* dataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E42BE3209E583400A906A0 /* dataManager.swift */; };
 		57E42BE7209E586400A906A0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E42BE6209E586400A906A0 /* Configuration.swift */; };
 		57E42BE9209F469500A906A0 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E42BE8209F469500A906A0 /* DataBaseManager.swift */; };
+		57E42BED20A05A8300A906A0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E42BEC20A05A8300A906A0 /* MapKit.framework */; };
+		57E42BF020A0617F00A906A0 /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E42BEF20A0617F00A906A0 /* MyAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		57E42BE3209E583400A906A0 /* dataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManager.swift; sourceTree = "<group>"; };
 		57E42BE6209E586400A906A0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		57E42BE8209F469500A906A0 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		57E42BEC20A05A8300A906A0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		57E42BEF20A0617F00A906A0 /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57E42BED20A05A8300A906A0 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +100,7 @@
 				57D2825A209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2.gitTests */,
 				57D28265209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2.gitUITests */,
 				57D28241209E05D00057956A /* Products */,
+				57E42BEB20A05A8300A906A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +117,7 @@
 		57D28242209E05D00057956A /* Nick_Vanden_Eynde_multec_werkstuk2.git */ = {
 			isa = PBXGroup;
 			children = (
+				57E42BEE20A0616700A906A0 /* Model */,
 				57E42BE5209E584F00A906A0 /* Configuration */,
 				57E42BE2209E580800A906A0 /* manager */,
 				57D28252209E05D10057956A /* Info.plist */,
@@ -202,6 +209,22 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		57E42BEB20A05A8300A906A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57E42BEC20A05A8300A906A0 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		57E42BEE20A0616700A906A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				57E42BEF20A0617F00A906A0 /* MyAnnotation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,6 +293,11 @@
 				TargetAttributes = {
 					57D2823F209E05D00057956A = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					57D28256209E05D10057956A = {
 						CreatedOnToolsVersion = 9.3;
@@ -335,6 +363,7 @@
 			files = (
 				57D28246209E05D00057956A /* ViewController.swift in Sources */,
 				57E42BE9209F469500A906A0 /* DataBaseManager.swift in Sources */,
+				57E42BF020A0617F00A906A0 /* MyAnnotation.swift in Sources */,
 				57D28244209E05D00057956A /* AppDelegate.swift in Sources */,
 				57D2824C209E05D00057956A /* Nick_Vanden_Eynde_multec_werkstuk2_git.xcdatamodeld in Sources */,
 				57D2827B209E11E60057956A /* forTableViewController.swift in Sources */,

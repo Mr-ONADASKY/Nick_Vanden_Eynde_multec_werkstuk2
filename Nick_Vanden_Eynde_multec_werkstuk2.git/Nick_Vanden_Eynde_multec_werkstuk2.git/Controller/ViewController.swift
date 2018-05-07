@@ -9,43 +9,31 @@
 // https://stackoverflow.com/questions/9964371/how-to-detect-first-time-app-launch-on-an-iphone
 
 import UIKit
+import CoreLocation
+import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
+    
 
-    let url = URL(string: "https://api.jcdecaux.com/vls/v1/stations?apiKey=6d5071ed0d0b3b68462ad73df43fd9e5479b03d6&contract=Bruxelles-Capitale")
-    
-    
+    @IBOutlet weak var myMapView: MKMapView!
+    var locationManager = CLLocationManager()
+    var villoStations = [Station]()
+    private let dataBaseManager = DataBaseManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        self.villoStations = self.dataBaseManager.getDataFromTheDatabase()
         
-        let urlRequest = URLRequest(url: url!)
-        
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        
-        let task = session.dataTask(with: urlRequest) {
-            (data, response, error) in
-            //check for errors
-            guard error == nil else {
-                print("error calling GET")
-                print(error!)
-                return
-            }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                    as? [String: AnyObject]
-                
-                DispatchQueue.main.async {
-                    
-                    
-                }
-            } catch let error as NSError {
-                print(error)
-            }
+        for villoStation in self.villoStations {
+            let coordinate = CLLocationCoordinate2D(latitude: villoStation.latitude, longitude: villoStation.longitude)
+            
+            let annotation = MyAnnotation(coordinate: coordinate, title: villoStation.name)
+            
+            self.myMapView.addAnnotation(annotation)
             
         }
-        task.resume()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +41,26 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+    }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        mapView.setRegion(region, animated: true)
+        
+    }
 
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        print(view.annotation?.title, view.tag)
+        
+        if let annotationTitle = view.annotation?.title
+        {
+            print(annotationTitle)
+        }
+    }
 }
 
