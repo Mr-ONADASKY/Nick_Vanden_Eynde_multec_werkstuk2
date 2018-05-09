@@ -11,7 +11,7 @@
 
 
 import UIKit
-import CoreLocationkover
+import CoreLocation
 import MapKit
 
 private let kVilloStationName = "kVilloStationWishListAnnotationName"
