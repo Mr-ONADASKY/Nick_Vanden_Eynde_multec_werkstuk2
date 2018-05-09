@@ -120,7 +120,7 @@ import UIKit
                 dateFormatter.timeZone = TimeZone(secondsFromGMT: 3600)
                 return dateFormatter.string(from: opgehaaldeTime.first!.time!)
             }else {
-                return "Pull down to get data"
+                return NSLocalizedString("refreshData", comment: "")
             }
             
   

@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Give me some candy please</string>
+	<string>Give me permission please</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Give me permission because you&apos;re a cunt!</string>
+	<string>Give me always permission please</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Give me permission you cunt!</string>
+	<string>Just give me permission!</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

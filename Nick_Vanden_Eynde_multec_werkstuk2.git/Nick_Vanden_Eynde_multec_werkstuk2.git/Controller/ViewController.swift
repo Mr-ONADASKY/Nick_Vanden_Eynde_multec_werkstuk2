@@ -55,11 +55,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-        print(view.annotation?.title, view.tag)
-        
         if let annotationTitle = view.annotation?.title
         {
-            print(annotationTitle)
+            print(annotationTitle!)
         }
     }
 }
