@@ -82,7 +82,7 @@ import UIKit
                 villoStation.bonus = (station["bonus"] != nil)
                 villoStation.status = station["status"] as? String
                 villoStation.contract_name = station["contract_name"] as? String
-                villoStation.bike_stands = station["bike_stands"] as? String
+                villoStation.bike_stands = Int64(station["bike_stands"] as! Int)
                 villoStation.available_bike_stands = station["available_bike_stands"] as! Int64
                 villoStation.available_bikes = station["available_bikes"] as! Int64
                 villoStation.last_update = station["last_update"] as! Double

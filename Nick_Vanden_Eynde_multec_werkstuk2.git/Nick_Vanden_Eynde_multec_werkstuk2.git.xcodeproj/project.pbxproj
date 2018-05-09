@@ -10,6 +10,13 @@
 		575DA23C20A30BAC0073BBF9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 575DA23E20A30BAC0073BBF9 /* Localizable.strings */; };
 		575DA24E20A318160073BBF9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 575DA24D20A318160073BBF9 /* Info.plist */; };
 		575DA25120A319750073BBF9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 575DA25320A319750073BBF9 /* InfoPlist.strings */; };
+		57AB5ACD20A3413300E08A3F /* VilloStationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB5ACC20A3413300E08A3F /* VilloStationObject.swift */; };
+		57AB5ACF20A3419000E08A3F /* VilloStationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB5ACE20A3419000E08A3F /* VilloStationManager.swift */; };
+		57AB5AD120A3463A00E08A3F /* VilloStationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB5AD020A3463A00E08A3F /* VilloStationAnnotation.swift */; };
+		57AB5AD420A34A0700E08A3F /* VillostationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB5AD320A34A0700E08A3F /* VillostationAnnotationView.swift */; };
+		57AB5AD720A34EDB00E08A3F /* VilloStationDetailMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57AB5AD620A34EDB00E08A3F /* VilloStationDetailMapView.xib */; };
+		57AB5AD920A34F5E00E08A3F /* VilloStationDetailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB5AD820A34F5E00E08A3F /* VilloStationDetailMapView.swift */; };
+		57AB5ADB20A3568300E08A3F /* VilloStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB5ADA20A3568300E08A3F /* VilloStationViewController.swift */; };
 		57D28244209E05D00057956A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D28243209E05D00057956A /* AppDelegate.swift */; };
 		57D28246209E05D00057956A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D28245209E05D00057956A /* ViewController.swift */; };
 		57D28249209E05D00057956A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D28247209E05D00057956A /* Main.storyboard */; };
@@ -19,7 +26,6 @@
 		57D2825C209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2_gitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D2825B209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2_gitTests.swift */; };
 		57D28267209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2_gitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D28266209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2_gitUITests.swift */; };
 		57D28279209E11450057956A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D28278209E11450057956A /* TableViewController.swift */; };
-		57E42BDB209E53BD00A906A0 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E42BDA209E53BD00A906A0 /* Station.swift */; };
 		57E42BE4209E583400A906A0 /* dataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E42BE3209E583400A906A0 /* dataManager.swift */; };
 		57E42BE7209E586400A906A0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E42BE6209E586400A906A0 /* Configuration.swift */; };
 		57E42BE9209F469500A906A0 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E42BE8209F469500A906A0 /* DataBaseManager.swift */; };
@@ -52,6 +58,13 @@
 		575DA24D20A318160073BBF9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		575DA25220A319750073BBF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		575DA25420A319760073BBF9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		57AB5ACC20A3413300E08A3F /* VilloStationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VilloStationObject.swift; sourceTree = "<group>"; };
+		57AB5ACE20A3419000E08A3F /* VilloStationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilloStationManager.swift; sourceTree = "<group>"; };
+		57AB5AD020A3463A00E08A3F /* VilloStationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilloStationAnnotation.swift; sourceTree = "<group>"; };
+		57AB5AD320A34A0700E08A3F /* VillostationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillostationAnnotationView.swift; sourceTree = "<group>"; };
+		57AB5AD620A34EDB00E08A3F /* VilloStationDetailMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VilloStationDetailMapView.xib; sourceTree = "<group>"; };
+		57AB5AD820A34F5E00E08A3F /* VilloStationDetailMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilloStationDetailMapView.swift; sourceTree = "<group>"; };
+		57AB5ADA20A3568300E08A3F /* VilloStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilloStationViewController.swift; sourceTree = "<group>"; };
 		57D28240209E05D00057956A /* Nick_Vanden_Eynde_multec_werkstuk2.git.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nick_Vanden_Eynde_multec_werkstuk2.git.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D28243209E05D00057956A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57D28245209E05D00057956A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +79,6 @@
 		57D28266209E05D10057956A /* Nick_Vanden_Eynde_multec_werkstuk2_gitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nick_Vanden_Eynde_multec_werkstuk2_gitUITests.swift; sourceTree = "<group>"; };
 		57D28268209E05D10057956A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57D28278209E11450057956A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		57E42BDA209E53BD00A906A0 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		57E42BE3209E583400A906A0 /* dataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataManager.swift; sourceTree = "<group>"; };
 		57E42BE6209E586400A906A0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		57E42BE8209F469500A906A0 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
@@ -110,6 +122,23 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
+		57AB5AD220A349EB00E08A3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57AB5AD320A34A0700E08A3F /* VillostationAnnotationView.swift */,
+				57AB5AD820A34F5E00E08A3F /* VilloStationDetailMapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		57AB5AD520A34EB200E08A3F /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				57AB5AD620A34EDB00E08A3F /* VilloStationDetailMapView.xib */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
 		57D28237209E05D00057956A = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +163,8 @@
 		57D28242209E05D00057956A /* Nick_Vanden_Eynde_multec_werkstuk2.git */ = {
 			isa = PBXGroup;
 			children = (
+				57AB5AD520A34EB200E08A3F /* Interface */,
+				57AB5AD220A349EB00E08A3F /* View */,
 				575DA23920A30B130073BBF9 /* Localizable */,
 				57E42BEE20A0616700A906A0 /* Model */,
 				57E42BE5209E584F00A906A0 /* Configuration */,
@@ -143,7 +174,6 @@
 				57D2827E209E16F00057956A /* Assets */,
 				57D2827D209E16DB0057956A /* Storyboard */,
 				57D2827C209E16C00057956A /* Controller */,
-				57E42BDA209E53BD00A906A0 /* Station.swift */,
 			);
 			path = Nick_Vanden_Eynde_multec_werkstuk2.git;
 			sourceTree = "<group>";
@@ -171,6 +201,7 @@
 			children = (
 				57D28245209E05D00057956A /* ViewController.swift */,
 				57D28278209E11450057956A /* TableViewController.swift */,
+				57AB5ADA20A3568300E08A3F /* VilloStationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -213,6 +244,7 @@
 			children = (
 				57E42BE3209E583400A906A0 /* dataManager.swift */,
 				57E42BE8209F469500A906A0 /* DataBaseManager.swift */,
+				57AB5ACE20A3419000E08A3F /* VilloStationManager.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -236,7 +268,9 @@
 		57E42BEE20A0616700A906A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				57AB5ACC20A3413300E08A3F /* VilloStationObject.swift */,
 				57E42BEF20A0617F00A906A0 /* MyAnnotation.swift */,
+				57AB5AD020A3463A00E08A3F /* VilloStationAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,6 +389,7 @@
 				575DA25120A319750073BBF9 /* InfoPlist.strings in Resources */,
 				575DA23C20A30BAC0073BBF9 /* Localizable.strings in Resources */,
 				57D2824E209E05D10057956A /* Assets.xcassets in Resources */,
+				57AB5AD720A34EDB00E08A3F /* VilloStationDetailMapView.xib in Resources */,
 				575DA24E20A318160073BBF9 /* Info.plist in Resources */,
 				57D28249209E05D00057956A /* Main.storyboard in Resources */,
 			);
@@ -381,15 +416,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57AB5ADB20A3568300E08A3F /* VilloStationViewController.swift in Sources */,
 				57D28246209E05D00057956A /* ViewController.swift in Sources */,
 				57E42BE9209F469500A906A0 /* DataBaseManager.swift in Sources */,
 				57E42BF020A0617F00A906A0 /* MyAnnotation.swift in Sources */,
+				57AB5ACD20A3413300E08A3F /* VilloStationObject.swift in Sources */,
+				57AB5AD120A3463A00E08A3F /* VilloStationAnnotation.swift in Sources */,
 				57D28244209E05D00057956A /* AppDelegate.swift in Sources */,
 				57D2824C209E05D00057956A /* Nick_Vanden_Eynde_multec_werkstuk2_git.xcdatamodeld in Sources */,
-				57E42BDB209E53BD00A906A0 /* Station.swift in Sources */,
 				57E42BE4209E583400A906A0 /* dataManager.swift in Sources */,
 				57E42BE7209E586400A906A0 /* Configuration.swift in Sources */,
+				57AB5AD920A34F5E00E08A3F /* VilloStationDetailMapView.swift in Sources */,
 				57D28279209E11450057956A /* TableViewController.swift in Sources */,
+				57AB5AD420A34A0700E08A3F /* VillostationAnnotationView.swift in Sources */,
+				57AB5ACF20A3419000E08A3F /* VilloStationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

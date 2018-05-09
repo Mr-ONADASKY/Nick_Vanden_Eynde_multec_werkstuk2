@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,12 +37,54 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="OeH-O3-2Mq"/>
                     <connections>
-                        <outlet property="myMapView" destination="sha-ee-kpn" id="2Sk-tP-lh0"/>
+                        <outlet property="myMapView" destination="sha-ee-kpn" id="zTu-hq-aYr"/>
+                        <segue destination="nvh-7l-8xw" kind="presentation" identifier="villoStationDetails" id="qig-Xc-N8A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="945" y="767"/>
+        </scene>
+        <!--Villo Station View Controller-->
+        <scene sceneID="88Y-0Q-ATe">
+            <objects>
+                <viewController id="nvh-7l-8xw" customClass="VilloStationViewController" customModule="Nick_Vanden_Eynde_multec_werkstuk2_git" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="toP-fh-nCi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRN-1b-E8d">
+                                <rect key="frame" x="16" y="20" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcb-PF-DOi">
+                                <rect key="frame" x="164" y="592" width="46" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="goBack:" destination="nvh-7l-8xw" eventType="touchUpInside" id="cgN-QA-CSt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mcb-PF-DOi" firstAttribute="bottom" secondItem="wnf-qS-Lfk" secondAttribute="bottom" id="Xcg-6e-CRh"/>
+                            <constraint firstItem="mcb-PF-DOi" firstAttribute="centerX" secondItem="toP-fh-nCi" secondAttribute="centerX" id="Xjz-vZ-a02"/>
+                            <constraint firstItem="aRN-1b-E8d" firstAttribute="leading" secondItem="toP-fh-nCi" secondAttribute="leadingMargin" id="jYg-rv-SOA"/>
+                            <constraint firstItem="aRN-1b-E8d" firstAttribute="top" secondItem="wnf-qS-Lfk" secondAttribute="top" id="ynR-8y-umt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wnf-qS-Lfk"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="name" destination="aRN-1b-E8d" id="jPa-Pj-nU6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M2r-QR-alb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1908" y="766.86656671664173"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oH7-Ch-dIt">

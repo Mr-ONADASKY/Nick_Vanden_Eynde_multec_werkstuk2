@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view tag="1000" contentMode="scaleToFill" id="vUp-1O-ZHU" customClass="VilloStationDetailMapView" customModule="Nick_Vanden_Eynde_multec_werkstuk2_git" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="280"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwW-V4-hui">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="280"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="seeDetails:" destination="vUp-1O-ZHU" eventType="touchUpInside" id="H95-jf-yL9"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Villostation name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-VL-jpq">
+                    <rect key="frame" x="16" y="20" width="204" height="42"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="1005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Q6-rF-MAN">
+                    <rect key="frame" x="20" y="207" width="200" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="K2O-G8-BtK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="See Details"/>
+                    <connections>
+                        <action selector="seeDetails:" destination="vUp-1O-ZHU" eventType="touchUpInside" id="e7C-oh-FvS"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obL-h3-xDF">
+                    <rect key="frame" x="31" y="70" width="193" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="LKl-YM-mky"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fwW-V4-hui" firstAttribute="centerX" secondItem="3Q6-rF-MAN" secondAttribute="centerX" id="2KL-2I-M5Z"/>
+                <constraint firstAttribute="trailing" secondItem="fwW-V4-hui" secondAttribute="trailing" id="6S6-Lb-GQf"/>
+                <constraint firstItem="3Q6-rF-MAN" firstAttribute="top" secondItem="obL-h3-xDF" secondAttribute="bottom" constant="96" id="Cu9-Pw-Slo"/>
+                <constraint firstItem="Aak-VL-jpq" firstAttribute="leading" secondItem="vUp-1O-ZHU" secondAttribute="leadingMargin" id="G2v-mc-1xw"/>
+                <constraint firstItem="fwW-V4-hui" firstAttribute="top" secondItem="dKJ-bP-THO" secondAttribute="top" id="I8X-KY-DWf"/>
+                <constraint firstItem="obL-h3-xDF" firstAttribute="trailing" secondItem="vUp-1O-ZHU" secondAttribute="trailingMargin" id="Sgm-5x-RLF"/>
+                <constraint firstItem="fwW-V4-hui" firstAttribute="bottom" secondItem="dKJ-bP-THO" secondAttribute="bottom" id="TeB-hN-fYk"/>
+                <constraint firstItem="Aak-VL-jpq" firstAttribute="trailing" secondItem="3Q6-rF-MAN" secondAttribute="trailing" id="YKI-nD-8YQ"/>
+                <constraint firstItem="3Q6-rF-MAN" firstAttribute="leading" secondItem="dKJ-bP-THO" secondAttribute="leading" constant="20" id="hTc-Na-xm1"/>
+                <constraint firstItem="dKJ-bP-THO" firstAttribute="bottom" secondItem="3Q6-rF-MAN" secondAttribute="bottom" constant="43" id="mLl-1W-oyI"/>
+                <constraint firstItem="obL-h3-xDF" firstAttribute="leading" secondItem="dKJ-bP-THO" secondAttribute="leading" constant="31" id="o8X-0e-bmZ"/>
+                <constraint firstItem="obL-h3-xDF" firstAttribute="top" secondItem="Aak-VL-jpq" secondAttribute="bottom" constant="8" symbolic="YES" id="p6I-VK-jfB"/>
+                <constraint firstItem="fwW-V4-hui" firstAttribute="leading" secondItem="vUp-1O-ZHU" secondAttribute="leading" id="qbv-GU-g5I"/>
+                <constraint firstItem="Aak-VL-jpq" firstAttribute="top" secondItem="vUp-1O-ZHU" secondAttribute="top" constant="20" symbolic="YES" id="wzU-85-AdG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="dKJ-bP-THO"/>
+            <connections>
+                <outlet property="backGroundButton" destination="fwW-V4-hui" id="JDz-5E-Wig"/>
+                <outlet property="detailButton" destination="fwW-V4-hui" id="1Xe-iG-V3n"/>
+                <outlet property="villoStationDetailLabel" destination="obL-h3-xDF" id="SQc-fP-k9f"/>
+                <outlet property="villoStationName" destination="Aak-VL-jpq" id="pDl-Mj-T2A"/>
+            </connections>
+            <point key="canvasLocation" x="-31" y="-149"/>
+        </view>
+    </objects>
+</document>
