@@ -44,7 +44,8 @@ final class DataManager{
                 as? [AnyObject]
             
             if json != nil {
-                completion(json, nil)
+                var sortedJson = json?.sorted(by: sort)
+                completion(sortedJson, nil)
 
             } else {
                 completion(nil, DataManagerError.InvalidJson)
@@ -61,5 +62,9 @@ final class DataManager{
             print(error)
             completion(nil, DataManagerError.InvalidJson)
         }
+    }
+    private func sort(_ s1: AnyObject, _ s2: AnyObject) -> Bool {
+        print(String(s1["name"] as! String) < String(s2["name"] as! String))
+        return String(s1["name"] as! String) < String(s2["name"] as! String)
     }
 }

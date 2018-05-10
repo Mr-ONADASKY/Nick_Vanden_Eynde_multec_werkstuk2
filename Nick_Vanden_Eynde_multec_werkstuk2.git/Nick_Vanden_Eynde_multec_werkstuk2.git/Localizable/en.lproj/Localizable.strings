@@ -7,4 +7,17 @@
 */
 
 "refreshData" = "Pull down to get the data";
-
+"address" = "Address:";
+"availableBikes" = "Available bikes:";
+"availableBikeStands" = "Available bike stands:";
+"number" = "Number:";
+"name" = "Name:";
+"position" = "Postion:";
+"latitude" = "Latitude:";
+"longitude" = "Longitude:";
+"banking" = "Banking:";
+"bonus" = "Bonus:";
+"status" = "Status:";
+"contractName" = "Contract name:";
+"lastUpdate" = "Last update";
+"seeDetails" = "See Details";

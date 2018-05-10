@@ -22,10 +22,15 @@ class VilloStationDetailMapView: UIView {
     }
     */
     
-    @IBOutlet weak var villoStationName: UILabel!
-    @IBOutlet weak var villoStationDetailLabel: UILabel!
-    @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var backGroundButton: UIButton!
+    @IBOutlet weak var villoStationName: UILabel!
+    @IBOutlet weak var detailButton: UIButton!
+    @IBOutlet weak var villoStationAdres: UILabel!
+    @IBOutlet weak var villoStationAvailableBikes: UILabel!
+    @IBOutlet weak var villoStationAvailableBikeStands: UILabel!
+    @IBOutlet weak var adres: UILabel!
+    @IBOutlet weak var availableBikes: UILabel!
+    @IBOutlet weak var availableBikeStands: UILabel!
     
     var villoStation: VilloStationObject!
     weak var delegate: VilloStationDetailMapViewDelegate?
@@ -38,8 +43,14 @@ class VilloStationDetailMapView: UIView {
     func configureWithVilloStation(villoStation: VilloStationObject) {
         self.villoStation = villoStation
         
+        adres.text = NSLocalizedString("address", comment: "")
+        availableBikes.text = NSLocalizedString("availableBikes", comment: "")
+        availableBikeStands.text = NSLocalizedString("availableBikeStands", comment: "")
+        
         villoStationName.text = villoStation.name
-        villoStationDetailLabel.text = String(villoStation.available_bikes)
+        villoStationAdres.text = String(villoStation.address)
+        villoStationAvailableBikes.text = String(villoStation.available_bikes)
+        villoStationAvailableBikeStands.text = String(villoStation.available_bike_stands)
         
     }
     

@@ -51,8 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		575DA23A20A30B570073BBF9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
-		575DA23B20A30B570073BBF9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		575DA23D20A30BAC0073BBF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		575DA23F20A30BB40073BBF9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		575DA24D20A318160073BBF9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -487,7 +485,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				57D28248209E05D00057956A /* Base */,
-				575DA23A20A30B570073BBF9 /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -496,7 +493,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				57D28250209E05D10057956A /* Base */,
-				575DA23B20A30B570073BBF9 /* nl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

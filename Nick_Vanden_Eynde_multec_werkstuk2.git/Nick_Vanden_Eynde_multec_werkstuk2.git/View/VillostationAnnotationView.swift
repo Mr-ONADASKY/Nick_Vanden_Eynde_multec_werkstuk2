@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-private let kPersonMapPinImage = UIImage(named: "mapPin")!
+private let kVilloStationMapPinImage = UIImage(named: "bicyclePin")!
 private let kVilloStationMapAnimationTime = 0.300
 
 class VilloStationAnnotationView: MKAnnotationView {
@@ -25,13 +25,13 @@ class VilloStationAnnotationView: MKAnnotationView {
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.canShowCallout = false // 1
-        self.image = kPersonMapPinImage
+        self.image = kVilloStationMapPinImage
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.canShowCallout = false // 1
-        self.image = kPersonMapPinImage
+        self.image = kVilloStationMapPinImage
     }
     
     // MARK: - callout showing and hiding

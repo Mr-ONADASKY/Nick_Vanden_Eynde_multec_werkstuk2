@@ -7,3 +7,17 @@
 */
 
 "refreshData" = "Sleep naar beneden om de date te verversen";
+"address" = "Adres:";
+"availableBikes" = "Beschikbare fietsen:";
+"availableBikeStands" = "Beschikbare fietsstanden:";
+"number" = "Nummer:";
+"name" = "Naam:";
+"position" = "Positie:";
+"latitude" = "Latitude:";
+"longitude" = "Longitude:";
+"banking" = "Banking:";
+"bonus" = "Bonus:";
+"status" = "Status:";
+"contractName" = "Contract naam:";
+"lastUpdate" = "Laatste update";
+"seeDetails" = "Details";

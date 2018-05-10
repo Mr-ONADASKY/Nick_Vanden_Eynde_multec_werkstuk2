@@ -28,7 +28,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("hello")
        configureVilloStationsInMap()
     }
     

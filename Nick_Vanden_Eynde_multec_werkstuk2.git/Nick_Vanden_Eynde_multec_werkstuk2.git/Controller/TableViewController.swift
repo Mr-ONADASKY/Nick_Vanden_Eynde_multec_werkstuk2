@@ -9,6 +9,7 @@
 // https://stackoverflow.com/questions/9964371/how-to-detect-first-time-app-launch-on-an-iphone
 
 import UIKit
+import CoreLocation
 
 class TableViewController: UITableViewController {
     
@@ -39,7 +40,6 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(isAppAlreadyLaunchedOnce())
         self.villoStations = self.dataBaseManager.getDataFromTheDatabase()
         updateLabel.text = self.dataBaseManager.getUpdateTime()
 
@@ -104,20 +104,13 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-    func isAppAlreadyLaunchedOnce()->Bool{
-        let defaults = UserDefaults.standard
-        
-        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
-            print("App already launched : \(isAppAlreadyLaunchedOnce)")
-            return true
-        }else{
-            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
-            print("App launched first time")
-            return false
-        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! VilloStationViewController
+        let indexPath = self.tableView.indexPathForSelectedRow
+        let villoStation = villoStations[(indexPath?.row)!];
+        vc.villoStation = VilloStationObject(number: Int(villoStation.number), name: villoStation.name!, address: villoStation.address!, position: CLLocationCoordinate2D(latitude: villoStation.latitude, longitude: villoStation.longitude), banking: villoStation.banking, bonus: villoStation.bonus, status: villoStation.status!, contract_name: villoStation.contract_name!, bike_stands: Int(villoStation.bike_stands), available_bike_stands: Int(villoStation.available_bike_stands), available_bikes: Int(villoStation.available_bikes), last_update: villoStation.last_update)
     }
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
